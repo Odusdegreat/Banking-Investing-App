@@ -8,16 +8,16 @@ export default function BottomNav() {
   return (
     <View className="flex-row justify-around items-center bg-white/10 py-4 rounded-3xl mx-5 mb-5">
       {/* Home */}
-      <TouchableOpacity onPress={() => router.push("/")}>
+      <TouchableOpacity>
         <Ionicons name="home-outline" size={22} color="white" />
       </TouchableOpacity>
 
-      {/* Credit Card */}
-      <TouchableOpacity>
+      {/* Credit Card → Dashboard */}
+      <TouchableOpacity onPress={() => router.push("/dashboard" as any)}>
         <Feather name="credit-card" size={22} color="white" />
       </TouchableOpacity>
 
-      {/* Center Icon — navigate to Investing */}
+      {/* Center Icon → Investing */}
       <TouchableOpacity onPress={() => router.push("/investing")}>
         <Ionicons name="grid-outline" size={22} color="white" />
       </TouchableOpacity>
@@ -28,7 +28,7 @@ export default function BottomNav() {
       </TouchableOpacity>
 
       {/* User */}
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => router.push("/home" as any)}>
         <Feather name="user" size={22} color="white" />
       </TouchableOpacity>
     </View>
