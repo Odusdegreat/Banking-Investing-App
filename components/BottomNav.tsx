@@ -23,7 +23,7 @@ export default function BottomNav() {
       </TouchableOpacity>
 
       {/* Notifications */}
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => router.push("/notification" as any)}>
         <Ionicons name="notifications-outline" size={22} color="white" />
       </TouchableOpacity>
 
