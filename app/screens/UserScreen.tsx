@@ -1,5 +1,6 @@
 import BottomNav from "@/components/BottomNav";
 import { Feather, Ionicons } from "@expo/vector-icons";
+import { router } from "expo-router";
 import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
 import Logo from "../../assets/logo.svg";
 
@@ -35,7 +36,10 @@ export default function UserScreen() {
 
         {/* Actions */}
         <View className="mt-10 mx-5 space-y-4">
-          <TouchableOpacity className="bg-white/10 p-4 rounded-2xl flex-row items-center justify-between">
+          <TouchableOpacity
+            className="bg-white/10 p-4 rounded-2xl flex-row items-center justify-between"
+            onPress={() => router.push("/screens/EditProfileScreen")}
+          >
             <View className="flex-row items-center space-x-3">
               <Feather name="user" size={22} color="white" />
               <Text className="text-white text-base">Edit Profile</Text>
