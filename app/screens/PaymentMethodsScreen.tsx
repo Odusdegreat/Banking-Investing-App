@@ -21,6 +21,7 @@ export default function PaymentMethodsScreen() {
         <Ionicons name="wallet-outline" size={24} color="white" />
       </View>
 
+      {/* Content */}
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ paddingBottom: 120 }}
@@ -61,27 +62,95 @@ export default function PaymentMethodsScreen() {
               </View>
               <Feather name="x-circle" size={20} color="#EF4444" />
             </View>
-          </View>
 
-          {/* Add New Card */}
-          <TouchableOpacity className="bg-[#2563EB] p-4 rounded-2xl flex-row items-center justify-center mt-6">
-            <Ionicons name="add-circle-outline" size={20} color="white" />
-            <Text className="text-white text-base font-semibold ml-2">
-              Add New Card
-            </Text>
-          </TouchableOpacity>
+            <TouchableOpacity className="bg-[#2563EB] p-4 rounded-2xl flex-row items-center justify-center mt-4">
+              <Ionicons name="add-circle-outline" size={20} color="white" />
+              <Text className="text-white text-base font-semibold ml-2">
+                Add New Card
+              </Text>
+            </TouchableOpacity>
+          </View>
 
           {/* Bank Account Section */}
           <View className="bg-white/10 p-4 rounded-2xl mt-6">
             <Text className="text-gray-300 mb-3">Linked Bank Account</Text>
 
-            <View className="flex-row items-center justify-between bg-white/10 p-4 rounded-2xl">
+            <View className="flex-row items-center justify-between bg-white/10 p-4 rounded-2xl mb-3">
               <View className="flex-row items-center space-x-3">
                 <Ionicons name="business-outline" size={22} color="white" />
                 <View>
                   <Text className="text-white text-base">GTBank</Text>
                   <Text className="text-gray-400 text-sm">**** 5678</Text>
                 </View>
+              </View>
+              <Feather name="check-circle" size={20} color="#4ADE80" />
+            </View>
+
+            <TouchableOpacity className="bg-[#2563EB]/80 p-4 rounded-2xl flex-row items-center justify-center mt-3">
+              <Ionicons name="add-outline" size={20} color="white" />
+              <Text className="text-white text-base font-semibold ml-2">
+                Link New Bank
+              </Text>
+            </TouchableOpacity>
+          </View>
+
+          {/* Other Payment Platforms */}
+          <View className="bg-white/10 p-4 rounded-2xl mt-6">
+            <Text className="text-gray-300 mb-3">Online Payment Platforms</Text>
+
+            {/* Paystack */}
+            <View className="flex-row items-center justify-between bg-white/10 p-4 rounded-2xl mb-3">
+              <View className="flex-row items-center space-x-3">
+                <Image
+                  source={{
+                    uri: "https://upload.wikimedia.org/wikipedia/commons/5/5e/Paystack_Logo.png",
+                  }}
+                  className="w-20 h-6"
+                  resizeMode="contain"
+                />
+              </View>
+              <Feather name="check-circle" size={20} color="#4ADE80" />
+            </View>
+
+            {/* Stripe */}
+            <View className="flex-row items-center justify-between bg-white/10 p-4 rounded-2xl mb-3">
+              <View className="flex-row items-center space-x-3">
+                <Image
+                  source={{
+                    uri: "https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg",
+                  }}
+                  className="w-20 h-6"
+                  resizeMode="contain"
+                />
+              </View>
+              <Feather name="x-circle" size={20} color="#EF4444" />
+            </View>
+
+            {/* Flutterwave */}
+            <View className="flex-row items-center justify-between bg-white/10 p-4 rounded-2xl mb-3">
+              <View className="flex-row items-center space-x-3">
+                <Image
+                  source={{
+                    uri: "https://upload.wikimedia.org/wikipedia/commons/5/59/Flutterwave_Logo.png",
+                  }}
+                  className="w-20 h-6"
+                  resizeMode="contain"
+                />
+              </View>
+              <Feather name="check-circle" size={20} color="#4ADE80" />
+            </View>
+
+            {/* Bank Transfer */}
+            <View className="flex-row items-center justify-between bg-white/10 p-4 rounded-2xl">
+              <View className="flex-row items-center space-x-3">
+                <Ionicons
+                  name="swap-horizontal-outline"
+                  size={22}
+                  color="white"
+                />
+                <Text className="text-white text-base">
+                  Direct Bank Transfer
+                </Text>
               </View>
               <Feather name="check-circle" size={20} color="#4ADE80" />
             </View>
