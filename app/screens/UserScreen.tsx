@@ -47,7 +47,10 @@ export default function UserScreen() {
             <Ionicons name="chevron-forward" size={20} color="white" />
           </TouchableOpacity>
 
-          <TouchableOpacity className="bg-white/10 p-4 rounded-2xl flex-row items-center justify-between">
+          <TouchableOpacity
+            className="bg-white/10 p-4 rounded-2xl flex-row items-center justify-between"
+            onPress={() => router.push("/screens/SecuritySettingsScreen")}
+          >
             <View className="flex-row items-center space-x-3">
               <Feather name="lock" size={22} color="white" />
               <Text className="text-white text-base">Security Settings</Text>
