@@ -103,7 +103,7 @@ export default function PaymentMethodsScreen() {
               <View className="flex-row items-center space-x-3">
                 <Image
                   source={{
-                    uri: "https://upload.wikimedia.org/wikipedia/commons/5/5e/Paystack_Logo.png",
+                    uri: "https://digestafrica.com/images/logos/logo14.png",
                   }}
                   className="w-20 h-6"
                   resizeMode="contain"
@@ -131,7 +131,7 @@ export default function PaymentMethodsScreen() {
               <View className="flex-row items-center space-x-3">
                 <Image
                   source={{
-                    uri: "https://upload.wikimedia.org/wikipedia/commons/5/59/Flutterwave_Logo.png",
+                    uri: "https://flutterwave.com/images/logo/inverted.svg",
                   }}
                   className="w-20 h-6"
                   resizeMode="contain"
