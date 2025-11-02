@@ -69,7 +69,10 @@ export default function UserScreen() {
             <Ionicons name="chevron-forward" size={20} color="white" />
           </TouchableOpacity>
 
-          <TouchableOpacity className="bg-white/10 p-4 rounded-2xl flex-row items-center justify-between">
+          <TouchableOpacity
+            className="bg-white/10 p-4 rounded-2xl flex-row items-center justify-between"
+            onPress={() => router.push("/screens/HelpSupportScreen")}
+          >
             <View className="flex-row items-center space-x-3">
               <Ionicons name="help-circle-outline" size={22} color="white" />
               <Text className="text-white text-base">Help & Support</Text>
