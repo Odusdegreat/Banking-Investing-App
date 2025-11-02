@@ -7,37 +7,25 @@ import { Animated, Easing, ScrollView, Text, View } from "react-native";
 import Logo from "../../assets/logo.svg";
 
 export default function HomeScreen() {
-  // Animated values
   const savingsProgress = useRef(new Animated.Value(0)).current;
   const assetsProgress = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
     Animated.timing(savingsProgress, {
-      toValue: 0.8, // 80%
+      toValue: 80,
       duration: 1000,
       easing: Easing.out(Easing.ease),
       useNativeDriver: false,
     }).start();
 
     Animated.timing(assetsProgress, {
-      toValue: 0.6, // 60%
+      toValue: 60,
       duration: 1000,
       delay: 300,
       easing: Easing.out(Easing.ease),
       useNativeDriver: false,
     }).start();
   }, [assetsProgress, savingsProgress]);
-
-  // Interpolate the width to percentage
-  const savingsWidth = savingsProgress.interpolate({
-    inputRange: [0, 1],
-    outputRange: ["0%", "100%"],
-  });
-
-  const assetsWidth = assetsProgress.interpolate({
-    inputRange: [0, 1],
-    outputRange: ["0%", "100%"],
-  });
 
   return (
     <View className="flex-1 bg-[#0F172A]">
@@ -54,7 +42,7 @@ export default function HomeScreen() {
         {/* Greeting */}
         <View className="mb-6">
           <Text className="text-white text-2xl font-bold">Hi, Odus!</Text>
-          <Text className="text-gray-400 text-base">Here’s your balance.</Text>
+          <Text className="text-gray-400 text-base">Here`s your balance.</Text>
         </View>
 
         {/* Balance Summary */}
@@ -68,8 +56,15 @@ export default function HomeScreen() {
 
             <View className="h-2 bg-gray-700 rounded-full overflow-hidden">
               <Animated.View
-                className="h-2 bg-[#22C55E] rounded-full"
-                style={{ width: savingsWidth }}
+                style={{
+                  height: 8,
+                  backgroundColor: "#22C55E",
+                  borderRadius: 9999,
+                  width: savingsProgress.interpolate({
+                    inputRange: [0, 100],
+                    outputRange: ["0%", "100%"],
+                  }),
+                }}
               />
             </View>
           </View>
@@ -83,8 +78,15 @@ export default function HomeScreen() {
 
             <View className="h-2 bg-gray-700 rounded-full overflow-hidden">
               <Animated.View
-                className="h-2 bg-[#3B82F6] rounded-full"
-                style={{ width: assetsWidth }}
+                style={{
+                  height: 8,
+                  backgroundColor: "#ffffffff",
+                  borderRadius: 9999,
+                  width: assetsProgress.interpolate({
+                    inputRange: [0, 100],
+                    outputRange: ["0%", "100%"],
+                  }),
+                }}
               />
             </View>
           </View>

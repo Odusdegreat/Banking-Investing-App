@@ -13,12 +13,13 @@ export default function BottomNav() {
       </TouchableOpacity>
 
       {/* Credit Card → Dashboard */}
-      <TouchableOpacity onPress={() => router.push("/dashboard" as any)}>
+      <TouchableOpacity onPress={() => router.push("/investing")}>
         <Feather name="credit-card" size={22} color="white" />
       </TouchableOpacity>
 
       {/* Center Icon → Investing */}
-      <TouchableOpacity onPress={() => router.push("/investing")}>
+
+      <TouchableOpacity onPress={() => router.push("/dashboard" as any)}>
         <Ionicons name="grid-outline" size={22} color="white" />
       </TouchableOpacity>
 
