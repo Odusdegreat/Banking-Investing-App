@@ -2,6 +2,7 @@ import ActivityCard from "@/components/ActivityCard";
 import BottomNav from "@/components/BottomNav";
 import TransactionItem from "@/components/TransactionItem";
 import { Feather, Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
+import { useRouter } from "expo-router";
 import React, { useEffect, useRef } from "react";
 import {
   Animated,
@@ -13,7 +14,8 @@ import {
 } from "react-native";
 import Logo from "../../assets/logo.svg";
 
-export default function HomeScreen({ navigation }: any) {
+export default function HomeScreen() {
+  const router = useRouter(); // <-- useRouter hook
   const savingsProgress = useRef(new Animated.Value(0)).current;
   const assetsProgress = useRef(new Animated.Value(0)).current;
 
@@ -44,7 +46,8 @@ export default function HomeScreen({ navigation }: any) {
             <Text className="text-white text-xl font-semibold">INVETO</Text>
           </View>
 
-          <TouchableOpacity onPress={() => navigation.navigate("MenuScreen")}>
+          {/* Fixed navigation */}
+          <TouchableOpacity onPress={() => router.push("/screens/MenuScreen")}>
             <Ionicons name="menu-outline" size={28} color="white" />
           </TouchableOpacity>
         </View>
@@ -63,7 +66,6 @@ export default function HomeScreen({ navigation }: any) {
             <Text className="text-white text-xl font-semibold mb-2">
               $15,615
             </Text>
-
             <View className="h-2 bg-gray-700 rounded-full overflow-hidden">
               <Animated.View
                 style={{
@@ -85,7 +87,6 @@ export default function HomeScreen({ navigation }: any) {
             <Text className="text-white text-xl font-semibold mb-2">
               $9,615
             </Text>
-
             <View className="h-2 bg-gray-700 rounded-full overflow-hidden">
               <Animated.View
                 style={{
@@ -125,7 +126,6 @@ export default function HomeScreen({ navigation }: any) {
         <Text className="text-gray-300 text-lg font-semibold mb-3">
           Transactions
         </Text>
-
         <View className="space-y-4 mb-10">
           <TransactionItem
             title="Food & Beverage"

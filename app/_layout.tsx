@@ -1,5 +1,5 @@
 import "expo-dev-client";
-import "react-native-reanimated"; // 👈 must be FIRST import
+import "react-native-reanimated";
 import "../global.css";
 
 import { NAV_THEME } from "@/theme";
