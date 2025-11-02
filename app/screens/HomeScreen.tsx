@@ -2,10 +2,43 @@ import ActivityCard from "@/components/ActivityCard";
 import BottomNav from "@/components/BottomNav";
 import TransactionItem from "@/components/TransactionItem";
 import { Feather, Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
-import { ScrollView, Text, View } from "react-native";
+import React, { useEffect, useRef } from "react";
+import { Animated, Easing, ScrollView, Text, View } from "react-native";
 import Logo from "../../assets/logo.svg";
 
 export default function HomeScreen() {
+  // Animated values
+  const savingsProgress = useRef(new Animated.Value(0)).current;
+  const assetsProgress = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    Animated.timing(savingsProgress, {
+      toValue: 0.8, // 80%
+      duration: 1000,
+      easing: Easing.out(Easing.ease),
+      useNativeDriver: false,
+    }).start();
+
+    Animated.timing(assetsProgress, {
+      toValue: 0.6, // 60%
+      duration: 1000,
+      delay: 300,
+      easing: Easing.out(Easing.ease),
+      useNativeDriver: false,
+    }).start();
+  }, [assetsProgress, savingsProgress]);
+
+  // Interpolate the width to percentage
+  const savingsWidth = savingsProgress.interpolate({
+    inputRange: [0, 1],
+    outputRange: ["0%", "100%"],
+  });
+
+  const assetsWidth = assetsProgress.interpolate({
+    inputRange: [0, 1],
+    outputRange: ["0%", "100%"],
+  });
+
   return (
     <View className="flex-1 bg-[#0F172A]">
       <ScrollView className="flex-1 px-5 pt-12">
@@ -33,11 +66,10 @@ export default function HomeScreen() {
               $15,615
             </Text>
 
-            {/* Progress Bar */}
             <View className="h-2 bg-gray-700 rounded-full overflow-hidden">
-              <View
+              <Animated.View
                 className="h-2 bg-[#22C55E] rounded-full"
-                style={{ width: "80%" }}
+                style={{ width: savingsWidth }}
               />
             </View>
           </View>
@@ -49,11 +81,10 @@ export default function HomeScreen() {
               $9,615
             </Text>
 
-            {/* Progress Bar */}
             <View className="h-2 bg-gray-700 rounded-full overflow-hidden">
-              <View
+              <Animated.View
                 className="h-2 bg-[#3B82F6] rounded-full"
-                style={{ width: "60%" }}
+                style={{ width: assetsWidth }}
               />
             </View>
           </View>
