@@ -3,10 +3,17 @@ import BottomNav from "@/components/BottomNav";
 import TransactionItem from "@/components/TransactionItem";
 import { Feather, Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 import React, { useEffect, useRef } from "react";
-import { Animated, Easing, ScrollView, Text, View } from "react-native";
+import {
+  Animated,
+  Easing,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import Logo from "../../assets/logo.svg";
 
-export default function HomeScreen() {
+export default function HomeScreen({ navigation }: any) {
   const savingsProgress = useRef(new Animated.Value(0)).current;
   const assetsProgress = useRef(new Animated.Value(0)).current;
 
@@ -36,7 +43,10 @@ export default function HomeScreen() {
             <Logo width={28} height={28} />
             <Text className="text-white text-xl font-semibold">INVETO</Text>
           </View>
-          <Ionicons name="menu-outline" size={24} color="white" />
+
+          <TouchableOpacity onPress={() => navigation.navigate("MenuScreen")}>
+            <Ionicons name="menu-outline" size={28} color="white" />
+          </TouchableOpacity>
         </View>
 
         {/* Greeting */}
@@ -80,7 +90,7 @@ export default function HomeScreen() {
               <Animated.View
                 style={{
                   height: 8,
-                  backgroundColor: "#ffffffff",
+                  backgroundColor: "#FFFFFF",
                   borderRadius: 9999,
                   width: assetsProgress.interpolate({
                     inputRange: [0, 100],
