@@ -1,9 +1,12 @@
 import BottomNav from "@/components/BottomNav";
 import { FontAwesome, Ionicons, MaterialIcons } from "@expo/vector-icons";
+import { useRouter } from "expo-router";
 import React from "react";
 import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 
-export default function HelpSupportScreen({ navigation }) {
+export default function HelpSupportScreen() {
+  const router = useRouter();
+
   const helpOptions = [
     {
       id: 1,
@@ -42,7 +45,7 @@ export default function HelpSupportScreen({ navigation }) {
       {/* Header */}
       <View className="flex-row items-center px-5 pt-14 pb-5 border-b border-gray-100">
         <TouchableOpacity
-          onPress={() => navigation.goBack()}
+          onPress={() => router.back()}
           className="mr-3 rounded-full bg-gray-100 p-2"
         >
           <Ionicons name="arrow-back" size={22} color="#111827" />

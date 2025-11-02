@@ -8,7 +8,7 @@ export default function BottomNav() {
   return (
     <View className="flex-row justify-around items-center bg-white/10 py-4 rounded-3xl mx-5 mb-5">
       {/* Home */}
-      <TouchableOpacity onPress={() => router.push("/screens/UserScreen")}>
+      <TouchableOpacity onPress={() => router.push("/home" as any)}>
         <Ionicons name="home-outline" size={22} color="white" />
       </TouchableOpacity>
 
@@ -28,7 +28,7 @@ export default function BottomNav() {
       </TouchableOpacity>
 
       {/* User */}
-      <TouchableOpacity onPress={() => router.push("/home" as any)}>
+      <TouchableOpacity onPress={() => router.push("/screens/UserScreen")}>
         <Feather name="user" size={22} color="white" />
       </TouchableOpacity>
     </View>

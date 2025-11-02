@@ -1,5 +1,4 @@
 import ActivityCard from "@/components/ActivityCard";
-import BalanceCard from "@/components/BalanceCard";
 import BottomNav from "@/components/BottomNav";
 import TransactionItem from "@/components/TransactionItem";
 import { Feather, Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
@@ -21,14 +20,43 @@ export default function HomeScreen() {
 
         {/* Greeting */}
         <View className="mb-6">
-          <Text className="text-white text-2xl font-bold">Hi, Arthur!</Text>
-          <Text className="text-gray-400 text-base">Here`s Your Balance.</Text>
+          <Text className="text-white text-2xl font-bold">Hi, Odus!</Text>
+          <Text className="text-gray-400 text-base">Here’s your balance.</Text>
         </View>
 
-        {/* Balances */}
+        {/* Balance Summary */}
         <View className="flex-row justify-between mb-8">
-          <BalanceCard label="SAVINGS" amount="$15,615" color="#22C55E" />
-          <BalanceCard label="ASSETS" amount="$9,615" color="#3B82F6" />
+          {/* Savings */}
+          <View className="flex-1 mr-2 bg-[#1E293B] rounded-2xl p-4">
+            <Text className="text-gray-400 text-xs mb-1">SAVINGS</Text>
+            <Text className="text-white text-xl font-semibold mb-2">
+              $15,615
+            </Text>
+
+            {/* Progress Bar */}
+            <View className="h-2 bg-gray-700 rounded-full overflow-hidden">
+              <View
+                className="h-2 bg-[#22C55E] rounded-full"
+                style={{ width: "80%" }}
+              />
+            </View>
+          </View>
+
+          {/* Assets */}
+          <View className="flex-1 ml-2 bg-[#1E293B] rounded-2xl p-4">
+            <Text className="text-gray-400 text-xs mb-1">ASSETS</Text>
+            <Text className="text-white text-xl font-semibold mb-2">
+              $9,615
+            </Text>
+
+            {/* Progress Bar */}
+            <View className="h-2 bg-gray-700 rounded-full overflow-hidden">
+              <View
+                className="h-2 bg-[#3B82F6] rounded-full"
+                style={{ width: "60%" }}
+              />
+            </View>
+          </View>
         </View>
 
         {/* Activities */}
@@ -79,7 +107,6 @@ export default function HomeScreen() {
         </View>
       </ScrollView>
 
-      {/* Bottom Nav - Normal position */}
       <BottomNav />
     </View>
   );

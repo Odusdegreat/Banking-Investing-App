@@ -1,109 +1,139 @@
+import ActivityCard from "@/components/ActivityCard";
 import BottomNav from "@/components/BottomNav";
-import { Ionicons } from "@expo/vector-icons";
-import React from "react";
-import { ScrollView, Text, TouchableOpacity, View } from "react-native";
-import Piggy from "../../assets/Group.svg";
+import TransactionItem from "@/components/TransactionItem";
+import { Feather, Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
+import React, { useEffect, useRef } from "react";
+import { Animated, ScrollView, Text, View } from "react-native";
 import Logo from "../../assets/logo.svg";
 
-export default function InvestingScreen({ navigation }: any) {
+export default function HomeScreen() {
+  // Animated values for the progress bars
+  const savingsProgress = useRef(new Animated.Value(0)).current;
+  const assetsProgress = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    Animated.timing(savingsProgress, {
+      toValue: 0.8, // 80% filled
+      duration: 1200,
+      useNativeDriver: false,
+    }).start();
+
+    Animated.timing(assetsProgress, {
+      toValue: 0.6, // 60% filled
+      duration: 1200,
+      delay: 300,
+      useNativeDriver: false,
+    }).start();
+  }, []);
+
+  const savingsWidth = savingsProgress.interpolate({
+    inputRange: [0, 1],
+    outputRange: ["0%", "100%"],
+  });
+
+  const assetsWidth = assetsProgress.interpolate({
+    inputRange: [0, 1],
+    outputRange: ["0%", "100%"],
+  });
+
   return (
     <View className="flex-1 bg-[#0F172A]">
-      {/* Header */}
-      <View className="flex-row items-center justify-between px-5 pt-12 pb-4">
-        <View className="flex-row items-center space-x-2">
-          <Logo width={28} height={28} />
-          <Text className="text-xl font-bold text-[#FFFFFF]">INVETO</Text>
+      <ScrollView className="flex-1 px-5 pt-12">
+        {/* Header */}
+        <View className="flex-row items-center justify-between mb-8">
+          <View className="flex-row items-center space-x-2">
+            <Logo width={28} height={28} />
+            <Text className="text-white text-xl font-semibold">INVETO</Text>
+          </View>
+          <Ionicons name="menu-outline" size={24} color="white" />
         </View>
 
-        <TouchableOpacity>
-          <Ionicons name="notifications-outline" size={24} color="#0F172A" />
-        </TouchableOpacity>
-      </View>
+        {/* Greeting */}
+        <View className="mb-6">
+          <Text className="text-white text-2xl font-bold">Hi, Arthur!</Text>
+          <Text className="text-gray-400 text-base">Here’s your balance.</Text>
+        </View>
 
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ paddingBottom: 120 }}
-      >
-        {/* Investing Tips */}
-        <View className="px-5">
-          <Text className="text-lg font-semibold text-[#0F172A] mb-3">
-            Investing Tips
-          </Text>
+        {/* Balance Summary */}
+        <View className="flex-row justify-between mb-8">
+          {/* Savings */}
+          <View className="flex-1 mr-2 bg-[#1E293B] rounded-2xl p-4">
+            <Text className="text-gray-400 text-xs mb-1">SAVINGS</Text>
+            <Text className="text-white text-xl font-semibold mb-2">
+              $15,615
+            </Text>
 
-          <View className="bg-[#F8FAFC] rounded-2xl p-4 flex-row items-center justify-between shadow-sm">
-            <View className="mr-3">
-              <View className="w-14 h-14 bg-[#E2E8F0] rounded-full items-center justify-center">
-                <Piggy width={40} height={40} />
-              </View>
+            {/* Animated Progress Bar */}
+            <View className="h-2 bg-gray-700 rounded-full overflow-hidden">
+              <Animated.View
+                className="h-2 bg-[#22C55E] rounded-full"
+                style={{ width: savingsWidth }}
+              />
             </View>
+          </View>
 
-            <View className="flex-1 pr-3">
-              <Text className="text-base font-semibold text-[#0F172A] mb-1">
-                What is an ETF?
-              </Text>
-              <Text className="text-sm text-gray-500 mb-3">
-                By James B, PHD
-              </Text>
+          {/* Assets */}
+          <View className="flex-1 ml-2 bg-[#1E293B] rounded-2xl p-4">
+            <Text className="text-gray-400 text-xs mb-1">ASSETS</Text>
+            <Text className="text-white text-xl font-semibold mb-2">
+              $9,615
+            </Text>
 
-              <TouchableOpacity className="bg-[#0F172A] px-3 py-2 rounded-lg self-start">
-                <Text className="text-white text-xs font-semibold">
-                  LEARN MORE
-                </Text>
-              </TouchableOpacity>
-            </View>
-
-            <View className="w-12 h-12 bg-[#E2E8F0] rounded-full items-center justify-center">
-              <Ionicons name="trending-up-outline" size={22} color="#0F172A" />
+            {/* Animated Progress Bar */}
+            <View className="h-2 bg-gray-700 rounded-full overflow-hidden">
+              <Animated.View
+                className="h-2 bg-[#3B82F6] rounded-full"
+                style={{ width: assetsWidth }}
+              />
             </View>
           </View>
         </View>
 
-        {/* My Cards */}
-        <View className="mt-8 px-5">
-          <Text className="text-lg font-semibold text-[#0F172A] mb-4">
-            My Cards (4)
-          </Text>
+        {/* Activities */}
+        <Text className="text-gray-300 text-lg font-semibold mb-3">
+          Activities
+        </Text>
+        <View className="flex-row justify-between mb-8">
+          <ActivityCard
+            label="Account"
+            icon={<Ionicons name="person-outline" size={24} color="white" />}
+          />
+          <ActivityCard
+            label="Privacy"
+            icon={<Feather name="shield" size={24} color="white" />}
+          />
+          <ActivityCard
+            label="Help"
+            icon={<Feather name="help-circle" size={24} color="white" />}
+          />
+        </View>
 
-          <ScrollView
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            contentContainerStyle={{ paddingRight: 20 }}
-          >
-            {/* Card 1 */}
-            <View className="w-52 h-32 bg-[#0F172A] rounded-3xl p-5 mr-4 justify-between shadow">
-              <View className="flex-row justify-between items-center">
-                <Ionicons name="card-outline" size={20} color="#fff" />
-                <Text className="text-white text-sm tracking-wider">
-                  **** 6175
-                </Text>
-              </View>
-              <Text className="text-white text-2xl font-semibold">$47,417</Text>
-            </View>
+        {/* Transactions */}
+        <Text className="text-gray-300 text-lg font-semibold mb-3">
+          Transactions
+        </Text>
 
-            {/* Card 2 */}
-            <View className="w-52 h-32 bg-[#CBD5E1] rounded-3xl p-5 mr-4 justify-between shadow">
-              <View className="flex-row justify-between items-center">
-                <Ionicons name="card-outline" size={20} color="#0F172A" />
-                <Text className="text-gray-800 text-sm tracking-wider">
-                  **** 4012
-                </Text>
-              </View>
-              <Text className="text-2xl font-semibold text-[#0F172A]">
-                $584,403
-              </Text>
-            </View>
-
-            {/* Card 3 */}
-            <View className="w-52 h-32 bg-[#1E293B] rounded-3xl p-5 mr-4 justify-between shadow">
-              <View className="flex-row justify-between items-center">
-                <Ionicons name="card-outline" size={20} color="#fff" />
-                <Text className="text-white text-sm tracking-wider">
-                  **** 2389
-                </Text>
-              </View>
-              <Text className="text-white text-2xl font-semibold">$23,879</Text>
-            </View>
-          </ScrollView>
+        <View className="space-y-4 mb-10">
+          <TransactionItem
+            title="Food & Beverage"
+            subtitle="Five Lods • Feb 21"
+            amount="+28.11"
+            color="#22C55E40"
+            icon={
+              <MaterialCommunityIcons
+                name="food-fork-drink"
+                size={20}
+                color="#22C55E"
+              />
+            }
+          />
+          <TransactionItem
+            title="Shopping"
+            subtitle="H&M 1257 • Jan 14"
+            amount="-157.64"
+            color="#EF444420"
+            icon={<Feather name="shopping-bag" size={20} color="#F87171" />}
+          />
         </View>
       </ScrollView>
 
