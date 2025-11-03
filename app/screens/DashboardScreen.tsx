@@ -53,7 +53,7 @@ export default function DashboardScreen() {
     return data
       .map((item, i) => {
         const x = 20 + i * spacing;
-        const y = 80 - (item.amount / maxValue) * 60; // scale y
+        const y = 80 - (item.amount / maxValue) * 60;
         return `${i === 0 ? "M" : "L"} ${x} ${y}`;
       })
       .join(" ");

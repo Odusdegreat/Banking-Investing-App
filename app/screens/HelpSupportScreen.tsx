@@ -50,8 +50,11 @@ export default function HelpSupportScreen() {
         >
           <Ionicons name="arrow-back" size={24} color="white" />
         </TouchableOpacity>
+
         <Text className="text-xl font-bold text-white">Help & Support</Text>
-        <View style={{ width: 32 }} /> {/* placeholder for spacing */}
+
+        {/* Placeholder for spacing */}
+        <View style={{ width: 32 }} />
       </View>
 
       {/* Content */}
@@ -87,6 +90,7 @@ export default function HelpSupportScreen() {
           <Text className="text-white text-base font-semibold mb-2">
             Need quick help?
           </Text>
+
           <View className="space-y-2">
             <TouchableOpacity
               className="flex-row items-center"
@@ -97,6 +101,7 @@ export default function HelpSupportScreen() {
                 support@bankinvestapp.com
               </Text>
             </TouchableOpacity>
+
             <TouchableOpacity
               className="flex-row items-center"
               activeOpacity={0.7}
@@ -110,7 +115,6 @@ export default function HelpSupportScreen() {
         </View>
       </ScrollView>
 
-      {/* Bottom Navigation */}
       <BottomNav />
     </View>
   );
