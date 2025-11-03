@@ -15,7 +15,7 @@ import {
 import Logo from "../../assets/logo.svg";
 
 export default function HomeScreen() {
-  const router = useRouter(); // <-- useRouter hook
+  const router = useRouter();
   const savingsProgress = useRef(new Animated.Value(0)).current;
   const assetsProgress = useRef(new Animated.Value(0)).current;
 
@@ -46,7 +46,6 @@ export default function HomeScreen() {
             <Text className="text-white text-xl font-semibold">INVETO</Text>
           </View>
 
-          {/* Fixed navigation */}
           <TouchableOpacity onPress={() => router.push("/screens/MenuScreen")}>
             <Ionicons name="menu-outline" size={28} color="white" />
           </TouchableOpacity>
@@ -55,7 +54,7 @@ export default function HomeScreen() {
         {/* Greeting */}
         <View className="mb-6">
           <Text className="text-white text-2xl font-bold">Hi, Odus!</Text>
-          <Text className="text-gray-400 text-base">Here`s your balance.</Text>
+          <Text className="text-gray-400 text-base">Here’s your balance.</Text>
         </View>
 
         {/* Balance Summary */}
@@ -108,17 +107,25 @@ export default function HomeScreen() {
           Activities
         </Text>
         <View className="flex-row justify-between mb-8">
+          {/* Account */}
           <ActivityCard
             label="Account"
             icon={<Ionicons name="person-outline" size={24} color="white" />}
+            onPress={() => router.push("/screens/AccountScreen")}
           />
+
+          {/* Privacy */}
           <ActivityCard
             label="Privacy"
             icon={<Feather name="shield" size={24} color="white" />}
+            onPress={() => router.push("/screens/PrivacyScreen")}
           />
+
+          {/* Help */}
           <ActivityCard
             label="Help"
             icon={<Feather name="help-circle" size={24} color="white" />}
+            onPress={() => router.push("/screens/HelpScreen")}
           />
         </View>
 
@@ -150,6 +157,7 @@ export default function HomeScreen() {
         </View>
       </ScrollView>
 
+      {/* Bottom Navigation */}
       <BottomNav />
     </View>
   );
