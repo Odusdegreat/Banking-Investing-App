@@ -16,7 +16,7 @@ export default function MenuScreen() {
 
   useEffect(() => {
     Animated.timing(slideAnim, {
-      toValue: 0, // slides up from bottom
+      toValue: 0,
       duration: 300,
       useNativeDriver: false,
     }).start();
