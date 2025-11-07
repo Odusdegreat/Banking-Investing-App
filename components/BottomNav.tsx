@@ -24,7 +24,7 @@ export default function BottomNav() {
       route: "/investing",
       icon: "credit-card",
       iconSet: "feather",
-      label: "Investing",
+      label: "Wallet",
     },
     {
       route: "/dashboard",
