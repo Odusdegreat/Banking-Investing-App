@@ -1,4 +1,3 @@
-import ActivityCard from "@/components/ActivityCard";
 import BottomNav from "@/components/BottomNav";
 import TransactionItem from "@/components/TransactionItem";
 import { Feather, Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
@@ -100,33 +99,6 @@ export default function HomeScreen() {
               />
             </View>
           </View>
-        </View>
-
-        {/* Activities */}
-        <Text className="text-gray-300 text-lg font-semibold mb-3">
-          Activities
-        </Text>
-        <View className="flex-row justify-between mb-8">
-          {/* Account */}
-          <ActivityCard
-            label="Account"
-            icon={<Ionicons name="person-outline" size={24} color="white" />}
-            onPress={() => router.push("/screens/AccountScreen")}
-          />
-
-          {/* Privacy */}
-          <ActivityCard
-            label="Privacy"
-            icon={<Feather name="shield" size={24} color="white" />}
-            onPress={() => router.push("/screens/PrivacyScreen")}
-          />
-
-          {/* Help */}
-          <ActivityCard
-            label="Help"
-            icon={<Feather name="help-circle" size={24} color="white" />}
-            onPress={() => router.push("/screens/HelpScreen")}
-          />
         </View>
 
         {/* Transactions */}

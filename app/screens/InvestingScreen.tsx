@@ -1,31 +1,22 @@
 import BottomNav from "@/components/BottomNav";
 import { Ionicons } from "@expo/vector-icons";
-import { useRouter } from "expo-router";
 import React from "react";
 import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 import Frame16 from "../../assets/Frame 16.svg";
 import Frame17 from "../../assets/Frame 17.svg";
 import Piggy from "../../assets/Group.svg";
+import Logo from "../../assets/logo.svg";
 
 export default function InvestingScreen() {
-  const router = useRouter();
-
   return (
     <View className="flex-1 bg-[#0F172A]">
       {/* Header */}
-      <View className="flex-row items-center justify-between px-5 pt-12 pb-4">
-        <TouchableOpacity
-          onPress={() => router.back()}
-          className="flex-row items-center space-x-2"
-        >
-          <Ionicons name="arrow-back" size={26} color="#FFFFFF" />
-        </TouchableOpacity>
-
-        <TouchableOpacity>
-          <Ionicons name="notifications-outline" size={24} color="#FFFFFF" />
-        </TouchableOpacity>
+      <View className="flex-row items-center px-5 mt-5 mb-8">
+        <Logo width={28} height={28} />
+        <Text className="text-white text-xl font-semibold ml-2">INVETO</Text>
       </View>
 
+      {/* Scrollable Content */}
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ paddingBottom: 120 }}
@@ -117,6 +108,7 @@ export default function InvestingScreen() {
         </View>
       </ScrollView>
 
+      {/* Bottom Navigation */}
       <BottomNav />
     </View>
   );

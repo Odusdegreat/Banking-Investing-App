@@ -1,4 +1,3 @@
-import BottomNav from "@/components/BottomNav";
 import { FontAwesome, Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import React from "react";
@@ -44,10 +43,7 @@ export default function HelpSupportScreen() {
     <View className="flex-1 bg-[#0F172A]">
       {/* Header */}
       <View className="flex-row items-center justify-between px-5 pt-12 pb-4">
-        <TouchableOpacity
-          onPress={() => router.back()}
-          className="mr-3 rounded-full bg-[#1E293B] p-2"
-        >
+        <TouchableOpacity onPress={() => router.back()} className="mr-3  p-2">
           <Ionicons name="arrow-back" size={24} color="white" />
         </TouchableOpacity>
 
@@ -114,8 +110,6 @@ export default function HelpSupportScreen() {
           </View>
         </View>
       </ScrollView>
-
-      <BottomNav />
     </View>
   );
 }

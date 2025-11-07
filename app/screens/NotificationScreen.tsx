@@ -1,6 +1,6 @@
 import BottomNav from "@/components/BottomNav";
 import { Ionicons } from "@expo/vector-icons";
-import { ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { ScrollView, Text, View } from "react-native";
 import Logo from "../../assets/logo.svg";
 
 export default function NotificationsScreen() {
@@ -54,9 +54,6 @@ export default function NotificationsScreen() {
           <Logo width={28} height={28} />
           <Text className="text-xl font-bold text-white">INVETO</Text>
         </View>
-        <TouchableOpacity>
-          <Ionicons name="notifications-outline" size={24} color="white" />
-        </TouchableOpacity>
       </View>
 
       <ScrollView

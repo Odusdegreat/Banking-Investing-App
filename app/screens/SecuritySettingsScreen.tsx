@@ -1,4 +1,3 @@
-import BottomNav from "@/components/BottomNav";
 import { Feather, Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import { useState } from "react";
@@ -86,9 +85,6 @@ export default function SecuritySettingsScreen() {
           </TouchableOpacity>
         </View>
       </ScrollView>
-
-      {/* Bottom Navigation */}
-      <BottomNav />
     </View>
   );
 }

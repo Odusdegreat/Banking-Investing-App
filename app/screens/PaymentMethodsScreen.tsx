@@ -1,4 +1,3 @@
-import BottomNav from "@/components/BottomNav";
 import { Feather, Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
@@ -15,7 +14,6 @@ export default function PaymentMethodsScreen() {
             <Ionicons name="arrow-back" size={24} color="white" />
           </TouchableOpacity>
         </View>
-        <Ionicons name="wallet-outline" size={24} color="white" />
       </View>
 
       {/* Content */}
@@ -154,8 +152,6 @@ export default function PaymentMethodsScreen() {
           </View>
         </View>
       </ScrollView>
-
-      <BottomNav />
     </View>
   );
 }

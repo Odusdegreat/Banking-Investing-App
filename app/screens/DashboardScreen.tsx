@@ -70,9 +70,6 @@ export default function DashboardScreen() {
           <Logo width={width * 0.07} height={width * 0.07} />
           <Text className="text-xl font-bold text-white">INVETO</Text>
         </View>
-        <TouchableOpacity>
-          <Ionicons name="menu-outline" size={width * 0.07} color="#fff" />
-        </TouchableOpacity>
       </View>
 
       <ScrollView
