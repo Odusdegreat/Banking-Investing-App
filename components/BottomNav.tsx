@@ -18,7 +18,7 @@ export default function BottomNav() {
       route: "/home",
       icon: "home-outline",
       iconSet: "ionicons",
-      label: "Home",
+      label: "Dashboard",
     },
     {
       route: "/investing",
@@ -30,13 +30,13 @@ export default function BottomNav() {
       route: "/dashboard",
       icon: "grid-outline",
       iconSet: "ionicons",
-      label: "Dashboard",
+      label: "Assets",
     },
     {
       route: "/notification",
       icon: "notifications-outline",
       iconSet: "ionicons",
-      label: "Alerts",
+      label: "Notifications",
     },
     {
       route: "/user",
