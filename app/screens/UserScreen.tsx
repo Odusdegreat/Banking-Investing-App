@@ -35,9 +35,9 @@ export default function UserScreen() {
         </View>
 
         {/* Actions */}
-        <View className="mt-10 mx-5 space-y-4">
+        <View className="mt-10 mx-5">
           <TouchableOpacity
-            className="bg-white/10 p-4 rounded-2xl flex-row items-center justify-between"
+            className="bg-white/10 p-4 rounded-2xl flex-row items-center justify-between mb-4"
             onPress={() => router.push("/screens/EditProfileScreen")}
           >
             <View className="flex-row items-center space-x-3">
@@ -48,7 +48,7 @@ export default function UserScreen() {
           </TouchableOpacity>
 
           <TouchableOpacity
-            className="bg-white/10 p-4 rounded-2xl flex-row items-center justify-between"
+            className="bg-white/10 p-4 rounded-2xl flex-row items-center justify-between mb-4"
             onPress={() => router.push("/screens/SecuritySettingsScreen")}
           >
             <View className="flex-row items-center space-x-3">
@@ -59,7 +59,7 @@ export default function UserScreen() {
           </TouchableOpacity>
 
           <TouchableOpacity
-            className="bg-white/10 p-4 rounded-2xl flex-row items-center justify-between"
+            className="bg-white/10 p-4 rounded-2xl flex-row items-center justify-between mb-4"
             onPress={() => router.push("/screens/PaymentMethodsScreen")}
           >
             <View className="flex-row items-center space-x-3">
@@ -80,6 +80,7 @@ export default function UserScreen() {
             <Ionicons name="chevron-forward" size={20} color="white" />
           </TouchableOpacity>
 
+          {/* Log Out Button with more separation */}
           <TouchableOpacity className="bg-red-500/90 p-4 rounded-2xl flex-row items-center justify-center mt-8">
             <Text className="text-white text-base font-semibold">Log Out</Text>
           </TouchableOpacity>
