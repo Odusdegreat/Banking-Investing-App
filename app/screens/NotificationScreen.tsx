@@ -2,7 +2,6 @@ import BottomNav from "@/components/BottomNav";
 import { Ionicons } from "@expo/vector-icons";
 import { ScrollView, Text, View } from "react-native";
 import Logo from "../../assets/logo.svg";
-
 export default function NotificationsScreen() {
   const notifications: {
     id: number;
@@ -47,51 +46,67 @@ export default function NotificationsScreen() {
   ];
 
   return (
-    <View className="flex-1 bg-[#0F172A]">
+    <View className="flex-1 bg-[#0F172A] pt-14">
+      {" "}
+      {/* slightly reduced top padding */}
       {/* Header */}
-      <View className="flex-row items-center justify-between px-5 pt-12 pb-4">
-        <View className="flex-row items-center space-x-2">
+      <View className="flex-row items-center justify-between px-6 pb-4">
+        <View className="flex-row items-center space-x-3">
           <Logo width={28} height={28} />
           <Text className="text-xl font-bold text-white">INVETO</Text>
         </View>
       </View>
-
+      {/* Scrollable Content */}
       <ScrollView
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ paddingBottom: 120 }}
+        contentContainerStyle={{ paddingBottom: 160 }}
       >
-        <View className="px-5 mt-2">
-          <Text className="text-2xl font-semibold text-white mb-3">
-            Notifications
-          </Text>
-          <Text className="text-gray-400 mb-6">
-            Stay up to date with your activity and alerts.
-          </Text>
+        <View className="px-6 mt-8 space-y-6">
+          {/* Page Title */}
+          <View className="space-y-2">
+            <Text className="text-2xl font-semibold text-white">
+              Notifications
+            </Text>
+            <Text className="text-gray-400 text-sm">
+              Stay up to date with your activity and alerts.
+            </Text>
+          </View>
 
-          {notifications.map((item) => (
-            <View
-              key={item.id}
-              className="bg-white/10 rounded-2xl p-4 mb-4 flex-row items-start space-x-3"
-            >
+          {/* Notifications List */}
+          <View className="space-y-5">
+            {notifications.map((item) => (
               <View
-                className="w-10 h-10 rounded-full items-center justify-center"
-                style={{ backgroundColor: item.color + "30" }}
+                key={item.id}
+                className="flex-row items-start bg-white/8 rounded-2xl p-4"
+                style={{
+                  borderColor: "rgba(255,255,255,0.03)",
+                  borderWidth: 1,
+                }}
               >
-                <Ionicons name={item.icon} size={22} color={item.color} />
-              </View>
+                {/* Icon */}
+                <View
+                  className="w-12 h-12 rounded-full items-center justify-center"
+                  style={{ backgroundColor: item.color + "20" }}
+                >
+                  <Ionicons name={item.icon} size={22} color={item.color} />
+                </View>
 
-              <View className="flex-1">
-                <Text className="text-white font-semibold">{item.title}</Text>
-                <Text className="text-gray-400 text-sm mb-1">
-                  {item.message}
-                </Text>
-                <Text className="text-gray-500 text-xs">{item.time}</Text>
+                {/* Text */}
+                <View className="flex-1 ml-4">
+                  <Text className="text-white font-semibold text-base mb-1">
+                    {item.title}
+                  </Text>
+                  <Text className="text-gray-300 text-sm mb-1">
+                    {item.message}
+                  </Text>
+                  <Text className="text-gray-500 text-xs">{item.time}</Text>
+                </View>
               </View>
-            </View>
-          ))}
+            ))}
+          </View>
         </View>
       </ScrollView>
-
+      {/* Bottom Navigation */}
       <BottomNav />
     </View>
   );

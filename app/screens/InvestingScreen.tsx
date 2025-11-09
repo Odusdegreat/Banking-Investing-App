@@ -9,9 +9,9 @@ import Logo from "../../assets/logo.svg";
 
 export default function InvestingScreen() {
   return (
-    <View className="flex-1 bg-[#0F172A]">
+    <View className="flex-1 bg-[#0F172A] pt-12">
       {/* Header */}
-      <View className="flex-row items-center px-5 mt-5 mb-8">
+      <View className="flex-row items-center px-5 mb-8 mt-3">
         <Logo width={28} height={28} />
         <Text className="text-white text-xl font-semibold ml-2">INVETO</Text>
       </View>
@@ -22,8 +22,8 @@ export default function InvestingScreen() {
         contentContainerStyle={{ paddingBottom: 120 }}
       >
         {/* Investing Tips */}
-        <View className="px-5">
-          <Text className="text-lg font-semibold text-white mb-3">
+        <View className="px-5 mb-8">
+          <Text className="text-lg font-semibold text-white mb-4">
             Investing Tips
           </Text>
 
@@ -54,7 +54,7 @@ export default function InvestingScreen() {
         </View>
 
         {/* My Cards */}
-        <View className="mt-8 px-5">
+        <View className="px-5 mb-8">
           <Text className="text-lg font-semibold text-white mb-4">
             My Cards (3)
           </Text>

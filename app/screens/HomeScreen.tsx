@@ -1,5 +1,3 @@
-import BottomNav from "@/components/BottomNav";
-import TransactionItem from "@/components/TransactionItem";
 import { Feather, Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import React, { useEffect, useRef } from "react";
@@ -11,6 +9,9 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+
+import BottomNav from "@/components/BottomNav";
+import TransactionItem from "@/components/TransactionItem";
 import Logo from "../../assets/logo.svg";
 
 export default function HomeScreen() {
@@ -37,7 +38,10 @@ export default function HomeScreen() {
 
   return (
     <View className="flex-1 bg-[#0F172A]">
-      <ScrollView className="flex-1 px-5 pt-12">
+      <ScrollView
+        className="flex-1 px-5 pt-12"
+        contentContainerStyle={{ paddingBottom: 100 }}
+      >
         {/* Header */}
         <View className="flex-row items-center justify-between mb-8">
           <View className="flex-row items-center space-x-2">
@@ -102,10 +106,17 @@ export default function HomeScreen() {
         </View>
 
         {/* Transactions */}
-        <Text className="text-gray-300 text-lg font-semibold mb-3">
-          Transactions
-        </Text>
-        <View className="space-y-4 mb-10">
+        <View className="mb-10">
+          <View className="flex-row justify-between items-center mb-3">
+            <Text className="text-gray-300 text-lg font-semibold">
+              Transactions
+            </Text>
+            <TouchableOpacity>
+              <Text className="text-[#22C55E] text-sm">See all</Text>
+            </TouchableOpacity>
+          </View>
+
+          {/* Transaction List */}
           <TransactionItem
             title="Food & Beverage"
             subtitle="Five Lods • Feb 21"
@@ -119,6 +130,10 @@ export default function HomeScreen() {
               />
             }
           />
+
+          {/* 👇 Added spacing */}
+          <View className="my-3" />
+
           <TransactionItem
             title="Shopping"
             subtitle="H&M 1257 • Jan 14"
