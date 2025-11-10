@@ -52,6 +52,12 @@
         "projectId": "427c5557-3a53-4ccb-97e0-bed38d5c9b42"
       }
     },
-    "owner": "odusthegreat"
+    "owner": "odusthegreat",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/427c5557-3a53-4ccb-97e0-bed38d5c9b42"
+    }
   }
 }

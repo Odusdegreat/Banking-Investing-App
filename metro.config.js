@@ -10,6 +10,7 @@ config.transformer.babelTransformerPath = require.resolve(
 config.resolver.assetExts = config.resolver.assetExts.filter(
   (ext) => ext !== "svg"
 );
+
 config.resolver.sourceExts.push("svg");
 
 // ✅ Keep NativeWind setup
