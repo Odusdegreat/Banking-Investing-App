@@ -2,6 +2,7 @@ import BottomNav from "@/components/BottomNav";
 import { Ionicons } from "@expo/vector-icons";
 import { ScrollView, Text, View } from "react-native";
 import Logo from "../../assets/logo.svg";
+
 export default function NotificationsScreen() {
   const notifications: {
     id: number;
@@ -47,7 +48,8 @@ export default function NotificationsScreen() {
 
   return (
     <View className="flex-1 bg-[#0F172A] pt-14">
-      {" "}
+      {/* The stray {" "} line has been removed */}
+
       {/* slightly reduced top padding */}
       {/* Header */}
       <View className="flex-row items-center justify-between px-6 pb-4">
